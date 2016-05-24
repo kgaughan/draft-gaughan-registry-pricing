@@ -6,6 +6,7 @@
   <!ENTITY RFC2246 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2246.xml">
   <!ENTITY RFC4346 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4346.xml">
   <!ENTITY RFC5246 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5246.xml">
+  <!ENTITY RFC7230 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7230.xml">
   <!ENTITY RFC7235 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7235.xml">
 ]>
 <rfc category="info" docName="draft-gaughan-registry-pricing-00" ipr="trust200902">
@@ -68,7 +69,55 @@
     </section>
 
     <section title="Protocol">
+      <section title="Naming">
+        <t>The registry MUST expose HTTP resources whose names are in the
+        the following format:</t>
+
+        <figure>
+          <artwork>TLD-CLASS.csv</artwork>
+        </figure>
+
+        <t>Where "TLD" refers to a top-level doman name and "CLASS" refers to
+        a class identifier.</t>
+
+        <t>When a HTTP user agent fetches a resource, the web server MUST
+        perform a 303 redirect to a a resource named as per
+        <xref target="draft-brown-domain-pricing"/> giving the current pricing
+        information for domains in that class.</t>
+
+        <t>The class identifiers are:</t>
+
+        <texttable>
+          <ttcol>Class</ttcol>
+          <ttcol>Purpose</ttcol>
+
+          <c>standard</c>
+          <c>Domains subject to standard pricing for the TLD.</c>
+
+          <c>collision</c>
+          <c>Domains with cannot currently be registered as they have been
+          found to have been in use privately.</c>
+
+          <c>premium</c>
+          <c>Domains subject to premium pricing.</c>
+
+          <c>reserved</c>
+          <c>Domain reserved by the registry.</c>
+        </texttable>
+
+        <t>Resources names MUST be lowercase.</t>
+
+        <t>For instance, if a registry wished to fetch the premium pricing
+        data for the 'example' TLD, they would fetch a resource with the
+        name 'example-premium.csv'.</t>
+      </section>
+
       <section title="Publishing">
+        <t>The preferred mechanism for publishing pricing information is at a
+        well-known URL <xref target="RFC5785"/> accessible over HTTP
+        <xref target="RFC7230"/>.</t>
+
+        <t>The resources published under "/.well-known/"</t>
       </section>
 
       <section title="Discovery">
@@ -99,6 +148,7 @@
       &RFC2246;
       &RFC4346;
       &RFC5246;
+      &RFC7230;
       &RFC7235;
 
       <reference anchor="draft-brown-domain-pricing">
