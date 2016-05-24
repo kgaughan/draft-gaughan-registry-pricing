@@ -2,6 +2,11 @@
 <!DOCTYPE rfc SYSTEM 'rfc2629.dtd'
 [
   <!ENTITY RFC2119 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
+  <!ENTITY RFC5785 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5785.xml">
+  <!ENTITY RFC2246 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2246.xml">
+  <!ENTITY RFC4346 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4346.xml">
+  <!ENTITY RFC5246 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5246.xml">
+  <!ENTITY RFC7235 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7235.xml">
 ]>
 <rfc category="info" docName="draft-gaughan-registry-pricing-00" ipr="trust200902">
   <front>
@@ -61,11 +66,40 @@
         <xref target="RFC2119">RFC 2119</xref>.</t>
       </section>
     </section>
+
+    <section title="Protocol">
+      <section title="Publishing">
+      </section>
+
+      <section title="Discovery">
+      </section>
+
+      <section title="Security">
+        <t>As the published pricing information is commercially sensitive
+        information for both the registry and registrar, the files MUST
+        TLS. Preferably, the registry SHOULD use
+        TLS 1.2 <xref target="RFC5246"/>, though
+        TLS 1.0 <xref target="RFC2246"/> and
+        TLS 1.1 <xref target="RFC4346"/> MAY be supported for backwards
+        compatibility.</t>
+
+        <t>Equally, registries SHOULD use HTTP Authentication
+        <xref target="RFC7235"/> to control access to the published
+        information. Policy regarding how credentials is at the descretion of
+        the registry, but it is RECOMMENDED that registries use the IANA ID of
+        the registrar as the username.</t>
+      </section>
+    </section>
   </middle>
 
   <back>
     <references title="Normative References">
       &RFC2119;
+      &RFC5785;
+      &RFC2246;
+      &RFC4346;
+      &RFC5246;
+      &RFC7235;
 
       <reference anchor="draft-brown-domain-pricing">
         <front>
