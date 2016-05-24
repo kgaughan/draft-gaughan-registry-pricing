@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE rfc SYSTEM 'rfc2629.dtd'
+[
+  <!ENTITY RFC2119 SYSTEM "http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
+]>
+<rfc category="info" docName="draft-gaughan-registry-pricing-00" ipr="trust200902">
+  <front>
+
+    <title>Publishing Domain Price Information</title>
+
+    <author fullname="Keith Gaughan" initials="K" surname="Gaughan">
+      <organization>Blacknight Internet Solutions</organization>
+      <address>
+        <postal>
+          <street>Unit 12A Barrowside Business Park</street>
+          <street>Sleaty Street</street>
+          <street>Graiguecullen</street>
+          <city>Carlow</city>
+          <code>R93 X265</code>
+          <country>IE</country>
+        </postal>
+        <email>keith@blacknight.com</email>
+        <uri>https://blacknight.com/</uri>
+      </address>
+    </author>
+
+    <date month="May" year="2016"/>
+
+    <area>Applications</area>
+    <workgroup>Internet Engineering Task Force</workgroup>
+    <keyword>EPP, DNS, Registrars, Billing</keyword>
+
+    <abstract>
+      <t>This document described best practices for publishing domain name
+      pricing data by registries for consumption by registrars and other
+      parties.</t>
+    </abstract>
+
+  </front>
+
+  <middle>
+    <section title="Introduction">
+      <t>As the DNS namespace expands, the need for registries to publish
+      pricing information in a uniform fashion becomes more acute. Currently,
+      registries publish this information in a variety of formats and though
+      a variety of media, making it difficult for registrars to automate the
+      process.</t>
+
+      <t>This document proposes a standard protocol for publishing domain name
+      pricing information in the standard format described in
+      <xref target="draft-brown-domain-pricing"/>. Adoption of this protocol
+      and the format in <xref target="draft-brown-domain-pricing"/> by
+      registries will facilitate the uniform automation of the exchange of
+      pricing information between registries and registrars, which will aid
+      with the adoption of new gTLDs.</t>
+
+      <section title="Conventions Used in This Document">
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+        document are to be interpreted as described in
+        <xref target="RFC2119">RFC 2119</xref>.</t>
+      </section>
+    </section>
+  </middle>
+
+  <back>
+    <references title="Normative References">
+      &RFC2119;
+
+      <reference anchor="draft-brown-domain-pricing">
+        <front>
+          <title>
+            A CSV-based Format for Premium Domain Pricing Information
+          </title>
+          <author fullname="Gavin Brown" initials="G" surname="Brown"/>
+          <date month="February" year="2015"/>
+        </front>
+        <format
+          type="text"
+          target="https://gitlab.centralnic.com/centralnic/draft-brown-domain-pricing/raw/master/draft-brown-domain-pricing.txt"/>
+      </reference>
+    </references>
+  </back>
+</rfc>
