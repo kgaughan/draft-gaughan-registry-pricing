@@ -12,4 +12,4 @@ clean:
 %.html: %.xml
 	xml2rfc --html $^
 
-.PHONY: all
+.PHONY: all clean
